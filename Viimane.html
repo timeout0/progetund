@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Takisti</title>
+    <script src="roopyhendus3.js"></script>
+    <script>
+        let r1, r2, pc1;
+        function startPage(){
+           r1=new Resistor(110); 
+           r2=new Resistor(220);
+           pc1=new ParallelCircuit(canvas1.getContext("2d"), 30, 100);
+           pc1.push(r1);
+           pc1.push(r2);
+           pc1.draw();
+        }
+    </script>
+  </head>
+  <body onload="startPage()">
+      <canvas id="canvas1" width="400" height="200"></canvas> <br />
+      <input type="range" id="voltagerange" min="0" value="0" max="12" onchange="pc1.setU(this.valueAsNumber)" />
+  </body>
+</html>
